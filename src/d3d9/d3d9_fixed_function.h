@@ -51,6 +51,7 @@ namespace dxvk {
     bool    invariantPosition;
     bool    forceSampleRateShading;
     int32_t drefScaling;
+    bool    shadowFilter;
   };
 
   constexpr float GetDrefScaleFactor(int32_t bitDepth) {
