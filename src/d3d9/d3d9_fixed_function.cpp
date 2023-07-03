@@ -1904,6 +1904,11 @@ namespace dxvk {
             }
 
             texture = m_module.opImageSampleDrefImplicitLod(m_floatType, imageVarId, texcoord, reference, imageOperands);
+
+            if (m_options.shadowFilter) {
+              texture = DoFixedFunctionShadowFilter(m_module, texture, imageVarId, texcoord, reference, imageOperands);
+            }
+
             texture = ScalarReplicate(texture);
           } else if (shouldProject) {
             texture = m_module.opImageSampleProjImplicitLod(m_vec4Type, imageVarId, texcoord, imageOperands);
